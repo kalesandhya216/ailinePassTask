@@ -1,0 +1,12 @@
+<!-- <p>airline-pass-dashboard works!</p> -->
+
+
+<!-- <p>airlinepass-dashboard works!</p> -->
+
+<h1 class="text-center text-primary">
+    Airline Passengers!
+</h1>
+
+<app-total-check-in [totalCheckInArr]="airlinePassArr"></app-total-check-in>
+<app-pass-info-card (sendObjToParent)="onSendObj($event)" [getObj]="passenger" *ngFor="let passenger of airlinePassArr"></app-pass-info-card>
+

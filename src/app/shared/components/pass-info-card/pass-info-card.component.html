@@ -1,0 +1,36 @@
+<!-- <p>pass-info-card works!</p> -->
+
+
+<!-- <p>pass-info-card works!</p> -->
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card mb-4">
+                
+                <div class="card-header h4" [ngClass]="{'alert-warning' : getObj.checkedIn=== true, 'alert-primary' : getObj.checkedIn === false}">
+                <i class="fas fa-plane-departure mr-2"  [ngStyle]="{ 'color' : getObj.checkedIn === true ? 'green' : 'red'}"></i>
+                <strong class="text-dark">
+                    <span *ngIf="flag">{{getObj.fullname}}
+                        
+                    </span>    
+                </strong>
+                
+                <input type="text" [value]="getObj.fullname" id="fullname" class="form-control" *ngIf="!flag" (input)="onInput($event)">
+            </div>
+            <div class="card-body">
+                <p>
+                    checkInDate : {{(getObj.checkInDate | date) ? (getObj.checkInDate | date) : 'Not Checked In'}}
+                </p>
+
+                <p>
+                    Children : {{getObj.children === null ? '0' : (getObj.children.length)}}
+                </p>
+            </div>
+            <p class="text-right">
+                <button class="btn btn-outline-primary btn-lg ml-2" (click)="onEdit($event)" *ngIf="flag">Edit</button>
+                <button class="btn btn-info btn-lg ml-2" (click)="onDone($event)" *ngIf="!flag">Done</button>
+                <button class="btn btn-outline-danger btn-lg mx-2" (click)="onDelete(getObj.id)">Remove</button>
+            </p>
+        </div>
+    </div>
+</div>
